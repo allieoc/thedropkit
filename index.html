@@ -13,72 +13,99 @@
       line-height: 1.6;
     }
     header {
-      padding: 4rem 2rem;
+      padding: 5rem 2rem 3rem;
       text-align: center;
+      position: relative;
+      background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
     }
-    header img.logo {
-      max-width: 100px;
-      margin-bottom: 1rem;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+    header img.hero-logo {
+      max-width: 280px;
+      margin-bottom: 1.5rem;
+      filter: drop-shadow(2px 2px 0 #3b3bff);
     }
     p.lead {
-      font-size: 1.25rem;
-      color: #444;
-    }
-    section {
-      padding: 3rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 1.5rem;
     }
     .btn {
       background-color: #111;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem 1.75rem;
       border: none;
       border-radius: 999px;
       font-weight: bold;
       text-decoration: none;
       display: inline-block;
-      margin-top: 1rem;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background-color: #333;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #111;
     }
     .featured-product {
-      border: 1px solid #eee;
       border-radius: 1rem;
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
-      background-color: #ffffff;
+      background: #fff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
     }
     .featured-product img {
       max-width: 100%;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
     }
-    form input, form textarea {
+    .featured-product p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    form {
+      margin-top: 2rem;
+    }
+    form input,
+    form textarea {
       width: 100%;
-      padding: 0.75rem;
+      padding: 1rem;
       margin-bottom: 1rem;
       border: 1px solid #ccc;
       border-radius: 0.5rem;
+      font-size: 1rem;
     }
     form button {
       background-color: #111;
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.75rem 1.75rem;
       border-radius: 999px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background-color: #333;
     }
     footer {
       padding: 2rem;
       text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
+      font-size: 0.95rem;
+      color: #777;
     }
-    .hero-logo {
-      max-width: 300px;
-      margin: 0 auto 2rem;
-      display: block;
+    footer a {
+      color: #3b3bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -96,9 +123,9 @@
 
   <section class="featured-product">
     <h2>✨ Now Trending: Bridal Kits</h2>
-    <img src="assets/The Drop Kit (3).png" alt="Bridal Kit Mockup">
-    <p>Funny, stylish bachelorette merch — custom-made for your crew. Especially the queer ones. 💍</p>
-    <a href="https://www.etsy.com/shop/DropKitStudio" class="btn" target="_blank">Shop on Etsy</a>
+    <img src="/assets/The Drop Kit (3).png" alt="Bridal Kit Mockup">
+    <p>Minimal, stylish bachelorette merch — custom-made for your crew.</p>
+    <a href="https://www.etsy.com/shop/thedropkit" class="btn" target="_blank">Shop on Etsy</a>
   </section>
 
   <section id="contact">
