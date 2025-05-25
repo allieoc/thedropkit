@@ -3,112 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/assets/Drop Kit (4).png" type="image/png" />
   <title>The Drop Kit</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f9f6ef;
-      color: #111;
-      line-height: 1.6;
-    }
-    header {
-      padding: 5rem 2rem 3rem;
-      text-align: center;
-      position: relative;
-      background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-    }
-    header img.hero-logo {
-      max-width: 280px;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(2px 2px 0 #3b3bff);
-    }
-    p.lead {
-      font-size: 1.4rem;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-    .btn {
-      background-color: #111;
-      color: white;
-      padding: 0.75rem 1.75rem;
-      border: none;
-      border-radius: 999px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 1rem;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background-color: #333;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-    .featured-product {
-      border-radius: 1rem;
-      padding: 2.5rem;
-      text-align: center;
-      background: #fff;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
-    }
-    .featured-product img {
-      max-width: 100%;
-      border-radius: 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-    .featured-product p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-    form {
-      margin-top: 2rem;
-    }
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-    }
-    form button {
-      background-color: #111;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.75rem;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    form button:hover {
-      background-color: #333;
-    }
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #777;
-    }
-    footer a {
-      color: #3b3bff;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="icon" href="/mnt/data/The Drop Kit (4).png" type="image/png" />
+  <link rel="stylesheet" href="/index.css" />
 </head>
 <body>
   <header>
@@ -117,31 +14,84 @@
     <a href="#contact" class="btn">Work With Me</a>
   </header>
 
-  <section>
-    <h2>What We Do</h2>
-    <p>The Drop Kit is your monthly dose of done-for-you creativity. Whether you need brand strategy, website refreshes, or scroll-stopping content, we’ve got you. All backed by taste, tech, and a very good to-do list.</p>
-  </section>
+  <section class="banner">
+    <img src="/assets/The Drop Kit (3).png" alt="logo" class="banner-img">
+    <div class="banner-description">
+        <h2>What We Do</h2>
+        <p>The Drop Kit is your monthly dose of done-for-you creativity. Whether you need brand strategy, website refreshes, or scroll-stopping content, we’ve got you. All backed by taste, tech, and a very good to-do list.</p>
+    </div>
+</section>
 
   <section class="featured-product">
     <h2>✨ Now Trending: Bridal Kits</h2>
-    <img src="/assets/The Drop Kit (3).png" alt="Bridal Kit Mockup">
+   <img src="assets/22.jpg" alt="bridal kit mockup" class="bridal-mockup" />
     <p>Minimal, stylish bachelorette merch — custom-made for your crew.</p>
-    <a href="https://www.etsy.com/shop/DropKitStudio" class="btn" target="_blank">Shop on Etsy</a>
+    <a href="https://www.etsy.com/shop/dropkitstudio" class="btn" target="_blank">Shop on Etsy</a>
+  </section>
+
+  <section>
+    <h2>Pricing Tiers</h2>
+    <div class="pricing-section">
+      <div class="pricing-card">
+        <h3>Starter Drop</h3>
+        <p>For creators who just need a little push.</p>
+        <div class="price">$99</div>
+        <p>1 content template<br>1 caption script<br>Quick brand audit</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Core Drop</h3>
+        <p>Our most popular kit — full of creative fuel.</p>
+        <div class="price">$249</div>
+        <p>3 content templates<br>3 caption/scripts<br>Mini strategy guide<br>Custom brand tips</p>
+      </div>
+      <div class="pricing-card">
+        <h3>Big Drop</h3>
+        <p>For launches, rebrands, or big-time glow-ups.</p>
+        <div class="price">$499</div>
+        <p>Full content kit<br>Website refresh audit<br>1:1 consult call<br>Priority support</p>
+      </div>
+    </div>
   </section>
 
   <section id="contact">
     <h2>Let’s Collaborate</h2>
     <p>Have a project in mind or want something custom? Drop a line below and let’s make something great.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Tell me about your idea..."></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+    <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Your Name" required />
+        <input type="email" name="from_email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Tell me about your idea..."></textarea>
+        <button type="submit">Send Message</button>
+      </form>      
+      <p id="thank-you" style="display: none; margin-top: 1rem; color: #333; font-weight: bold;">
+        Thank you for your message! I’ll be in touch soon.
+      </p>
   </section>
 
   <footer>
     <p>&copy; 2025 The Drop Kit. Find us on <a href="https://www.instagram.com/thedropkit" target="_blank">Instagram</a>.</p>
   </footer>
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("Sifmk3Mx-wVT0A50V");
+  })();
+</script>
+<script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      emailjs.sendForm("service_hja0c6j", "template_3cwc7zl", this)
+      .then(() => {
+        // Show thank you message
+        document.getElementById("thank-you").style.display = "block";
+        // Optional: Reset form
+        this.reset();
+      }, (err) => {
+        alert("Oops, something went wrong. Please try again.");
+        console.error(err);
+      });
+    });
+  </script>
+
 </body>
 </html>
