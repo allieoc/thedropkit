@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Drop Kit</title>
-  <link rel="icon" href="/mnt/data/The Drop Kit (4).png" type="image/png" />
+  <link rel="icon" href="/assets/The Drop Kit (4).png" type="image/png" />
   <link rel="stylesheet" href="/index.css" />
 </head>
 <body>
@@ -20,11 +20,25 @@
         <h2>What We Do</h2>
         <p>The Drop Kit is your monthly dose of done-for-you creativity. Whether you need brand strategy, website refreshes, or scroll-stopping content, we’ve got you. All backed by taste, tech, and a very good to-do list.</p>
     </div>
-</section>
+  </section>
+
+  <section class="featured-product">
+    <h2>✨ Try the Instant Drop</h2>
+    <!-- <img src="/assets/instant-drop-preview.png" alt="Instant Drop preview" class="bridal-mockup" /> -->
+    <p>Tell us your vibe + goals, and get a custom content kit in minutes — strategy, captions, visuals, and more, all AI-powered and totally on-brand.</p>
+    <a href="/instantDrop.html" class="btn">Try It Now</a>
+  </section>
+
+  <section class="featured-product">
+    <h2>Branded Merch for Clients</h2>
+    <img src="/assets/merch.png" alt="branded merch preview" class="bridal-mockup" />
+    <p>Want your brand on a tote, mug, or sweatshirt? We design and produce custom merch using your logo, fonts, and colors — perfect for giveaways, launches, or just looking cool.</p>
+    <a href="#contact" class="btn">Request a Quote</a>
+  </section>
 
   <section class="featured-product">
     <h2>✨ Now Trending: Bridal Kits</h2>
-   <img src="assets/22.jpg" alt="bridal kit mockup" class="bridal-mockup" />
+    <img src="assets/22.jpg" alt="bridal kit mockup" class="bridal-mockup" />
     <p>Minimal, stylish bachelorette merch — custom-made for your crew.</p>
     <a href="https://www.etsy.com/shop/dropkitstudio" class="btn" target="_blank">Shop on Etsy</a>
   </section>
@@ -72,19 +86,17 @@
   </footer>
 
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("Sifmk3Mx-wVT0A50V");
-  })();
-</script>
-<script>
+  <script>
+    (function() {
+      emailjs.init("Sifmk3Mx-wVT0A50V");
+    })();
+  </script>
+  <script>
     document.getElementById("contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
       emailjs.sendForm("service_hja0c6j", "template_3cwc7zl", this)
       .then(() => {
-        // Show thank you message
         document.getElementById("thank-you").style.display = "block";
-        // Optional: Reset form
         this.reset();
       }, (err) => {
         alert("Oops, something went wrong. Please try again.");
@@ -92,6 +104,5 @@
       });
     });
   </script>
-
 </body>
 </html>

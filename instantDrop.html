@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instant Drop | The Drop Kit</title>
+  <link rel="stylesheet" href="/index.css" />
+  <style>
+    body {
+      font-family: 'Recoleta', sans-serif;
+      background-color: #f9f6ef;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 6rem auto;
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+
+    .drop-shadow {
+      text-shadow: 1px 1px #3b3bff;
+    }
+
+    p.description {
+      font-size: 1.2rem;
+      color: #444;
+      margin: 1rem 0 2.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    button {
+      background-color: #3b3bff;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #2f2fff;
+    }
+
+    .result {
+      margin-top: 3rem;
+      text-align: left;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="drop-shadow">Instant Drop</h1>
+    <p class="description">Generate structured brand assets instantly. Just tell us what you're about.</p>
+    <input type="text" id="description" placeholder="Enter a company description..." />
+    <button onclick="generateKit()">Generate</button>
+
+    <div id="output" class="result" style="display: none;"></div>
+  </div>
+
+  <script>
+    async function generateKit() {
+  const input = document.getElementById("description").value.trim();
+  const output = document.getElementById("output");
+  if (!input) return alert("Please enter a description first.");
+
+  output.innerHTML = "Generating your kit...";
+  output.style.display = "block";
+
+  const res = await fetch("/.netlify/functions/instant-drop", {
+    method: "POST",
+    body: JSON.stringify({ description: input }),
+  });
+
+  const data = await res.json();
+  output.innerHTML = `<pre>${data.kit}</pre>`;
+}
+
+  </script>
+</body>
+</html>
