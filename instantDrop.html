@@ -61,6 +61,15 @@
       background-color: #2f2fff;
     }
 
+    .result pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        font-family: inherit;
+        font-size: 1rem;
+        }
+
+
     .result {
       margin-top: 3rem;
       text-align: left;
@@ -75,30 +84,27 @@
   <div class="container">
     <h1 class="drop-shadow">Instant Drop</h1>
     <p class="description">Generate structured brand assets instantly. Just tell us what you're about.</p>
-    <input type="text" id="description" placeholder="Enter a company description..." />
+    <input type="text" id="brandName" placeholder="Brand name (e.g. Studio Bloom)" />
+    <textarea id="brandDesc" rows="4" placeholder="Describe the brand, audience, and goals..."></textarea>
     <button onclick="generateKit()">Generate</button>
 
     <div id="output" class="result" style="display: none;"></div>
   </div>
 
   <script>
-    async function generateKit() {
-  const input = document.getElementById("description").value.trim();
-  const output = document.getElementById("output");
-  if (!input) return alert("Please enter a description first.");
+   const name = document.getElementById("brandName").value.trim();
+    const description = document.getElementById("brandDesc").value.trim();
 
-  output.innerHTML = "Generating your kit...";
-  output.style.display = "block";
+    const prompt = `
+    You are a creative strategist helping a brand called "${name}". Based on the description below, generate a mini brand kit with:
 
-  const res = await fetch("/.netlify/functions/instant-drop", {
-    method: "POST",
-    body: JSON.stringify({ description: input }),
-  });
+    1. Strategy summary (tone, goals, audience)
+    2. 3-post content plan (headlines + formats)
+    3. 1 caption draft
+    4. Visual direction (colors, typography, layout)
 
-  const data = await res.json();
-  output.innerHTML = `<pre>${data.kit}</pre>`;
-}
-
+    Brand description: ${description}
+    `;
   </script>
 </body>
 </html>
