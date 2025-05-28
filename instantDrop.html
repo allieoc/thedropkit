@@ -84,27 +84,43 @@
   <div class="container">
     <h1 class="drop-shadow">Instant Drop</h1>
     <p class="description">Generate structured brand assets instantly. Just tell us what you're about.</p>
-    <input type="text" id="brandName" placeholder="Brand name (e.g. Studio Bloom)" />
-    <textarea id="brandDesc" rows="4" placeholder="Describe the brand, audience, and goals..."></textarea>
-    <button onclick="generateKit()">Generate</button>
+     <input type="text" id="brandName" placeholder="Brand name (e.g. Studio Bloom)" />
+  <textarea id="brandDesc" rows="4" placeholder="Describe the brand, audience, and goals..."></textarea>
+  <button onclick="generateKit()">Generate</button>
 
-    <div id="output" class="result" style="display: none;"></div>
+  <div id="output" class="result" style="display: none;">
+    <pre></pre>
   </div>
+</div>
 
-  <script>
-   const name = document.getElementById("brandName").value.trim();
-    const description = document.getElementById("brandDesc").value.trim();
+<script>
+  async function generateKit() {
+    const name = document.getElementById("brandName").value.trim();
+    const desc = document.getElementById("brandDesc").value.trim();
+    const output = document.getElementById("output");
+    const pre = output.querySelector("pre");
 
-    const prompt = `
-    You are a creative strategist helping a brand called "${name}". Based on the description below, generate a mini brand kit with:
+    if (!name || !desc) {
+      alert("Please enter both brand name and description.");
+      return;
+    }
 
-    1. Strategy summary (tone, goals, audience)
-    2. 3-post content plan (headlines + formats)
-    3. 1 caption draft
-    4. Visual direction (colors, typography, layout)
+    output.style.display = "block";
+    pre.textContent = "Generating your kit...";
 
-    Brand description: ${description}
-    `;
-  </script>
+    try {
+      const res = await fetch("/.netlify/functions/instant-drop", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ brandName: name, brandDesc: desc }),
+      });
+
+      const data = await res.json();
+      pre.textContent = data.kit || "Something went wrong.";
+    } catch (err) {
+      pre.textContent = "Error: " + err.message;
+    }
+  }
+</script>
 </body>
 </html>
